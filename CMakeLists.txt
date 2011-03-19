@@ -4,14 +4,13 @@
 # For details see the COPYRIGHT file distributed with LuaDist.
 # Please note that the package source code is licensed under its own license.
 
-PROJECT(lpeg C)
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
-INCLUDE(dist.cmake)
+project(lpeg C)
+cmake_minimum_required(VERSION 2.6)
+include(dist.cmake)
 
-ADD_LUA_MODULE(lpeg lpeg.c lpeg.def)
-ADD_LUA_TEST(test.lua)
+install_lua_module(lpeg lpeg.c lpeg.def)
+install_lua_module(re re.lua)
+install_doc(re.html lpeg.html lpeg-128.gif)
+install_test(test.lua)
 
-INSTALL(TARGETS lpeg DESTINATION ${INSTALL_CMOD})
-INSTALL(FILES re.lua DESTINATION ${INSTALL_LMOD})
-INSTALL(FILES re.html lpeg.html lpeg-128.gif DESTINATION ${INSTALL_DOC})
-INSTALL(FILES test.lua DESTINATION ${INSTALL_TEST})
+add_lua_test(test.lua)
